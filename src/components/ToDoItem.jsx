@@ -1,16 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 function ToDoItem(props) {
-  const [isClicked, setMouseClick] = useState(false);
-  function handleClick() {
-    setMouseClick((prevValue) => {
-      return !prevValue;
-    });
-  }
   return (
-    <li style={{ textDecoration: isClicked ? "line-through" : "none" }} onClick={handleClick}>
-      {props.text}
-    </li>
+    <div onClick={props.onChecked}>
+      <li>{props.text}</li>
+    </div>
   );
 }
 
