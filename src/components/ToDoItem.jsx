@@ -3,11 +3,9 @@ import React, { useState } from "react";
 function ToDoItem(props) {
   const [isClicked, setMouseClick] = useState(false);
   function handleClick() {
-    if (isClicked === false) {
-      setMouseClick(true);
-    } else if (isClicked === true) {
-      setMouseClick(false);
-    }
+    setMouseClick((prevValue) => {
+      return !prevValue;
+    });
   }
   return (
     <li style={{ textDecoration: isClicked ? "line-through" : "none" }} onClick={handleClick}>
